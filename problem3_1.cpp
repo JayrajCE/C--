@@ -35,7 +35,7 @@ int main()
     int Choice,Employee_count=0,Temp_id,i;
     do
     { 
-        cout<<"Enter 1 to add Employee"<<endl;
+        cout<<"\nEnter 1 to add Employee"<<endl;
         cout<<"Enter 2 to set  Coustom Bouns"<<endl;
         cout<<"Enter 3 to Dislpay employee data"<<endl;
         cout<<"Enter 4 to EXIT"<<endl;
@@ -92,6 +92,7 @@ int main()
                     }
                     break;
                 }
+                break;
                
             
             case 3:
@@ -135,9 +136,9 @@ void Employee :: Display_data()
 {
     cout<<"ID : "<<Employee_id<<endl;
     cout<<"Name : "<<Employee_name<<endl;
-    cout<<"Basic salary"<<Basic_salary<<endl;
+    cout<<"Basic salary : "<<Basic_salary<<endl;
     cout<<"Bonus : "<<Bonus<<endl;
-    cout<<"Total salary"<<Total_salary<<endl;
+    cout<<"Total salary : "<<Total_salary<<endl;
 }
 void Employee :: Set_bonus()
 {

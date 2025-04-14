@@ -22,10 +22,10 @@ class Product
     }
     int check(int idno)
         {
-            cout<<"8";
+            
             if(Product_Id == idno)
             {
-                cout<<"9";
+                
                 return 1;
             }
             else
@@ -46,7 +46,7 @@ class Product
     {
         if( User_Quantitty > 0)
         {
-            cout<<"ID : "<<Product_Id<<endl;
+            cout<<"\nID : "<<Product_Id<<endl;
             cout<<"Name : "<<Product_Name<<endl;
             cout<<"Rate : "<<Product_Price<<endl;
             cout<<"Qantitiy : "<<User_Quantitty<<endl;
@@ -63,7 +63,7 @@ int main()
     float  Temp_Rate;
     string Temp_Name;
     do{
-    cout<<"Enter 1 to add stock"<<endl;
+    cout<<"\nEnter 1 to add stock"<<endl;
     cout<<"Enter 2 to purchase item"<<endl;
     cout<<"Enter 0 to exit"<<endl;
     cout<<"Enter your choice : ";
@@ -82,7 +82,7 @@ int main()
             cin>>Temp_Quantity;
             Product_count++;
             p[0].Add(Temp_Id,Temp_Quantity,Temp_Name,Temp_Rate);
-            cout<<"0";
+            
         }
         else{
             for(int i=0; i<Product_count ; i++)
@@ -103,7 +103,7 @@ int main()
                     cin>>Temp_Quantity;
                     p[Product_count].Add(Temp_Id,Temp_Quantity,Temp_Name,Temp_Rate);
                     Product_count++;
-                    cout<<"1";
+                    
                 }
             }
         }
@@ -111,7 +111,7 @@ int main()
     else if(choice == 2)
     {
         do{
-        cout<<"Enter 1 to purchase product"<<endl;
+        cout<<"\nEnter 1 to purchase product"<<endl;
         cout<<"Enter 2 to display bill"<<endl;
         cout<<"Enter 0 to exit"<<endl;
         cout<<"Enter Your Choice : ";

@@ -29,7 +29,7 @@ class Employee:private Person
     }
     void Display_Employee_Details()
     {
-        cout<<"ID : "<<ID<<endl;
+        cout<<"\nID : "<<ID<<endl;
         Display_person_details();
     }
 };
@@ -57,7 +57,7 @@ int main()
     string department,name;
     do
     {
-        cout<<"Enter 1 to add Employee"<<endl;
+        cout<<"\nEnter 1 to add Employee"<<endl;
         cout<<"Enter 2 to add Manager"<<endl;
         cout<<"Enter 3 to display Employess"<<endl;
         cout<<"Enter 4 to display Manager"<<endl;

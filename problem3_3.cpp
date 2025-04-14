@@ -15,7 +15,7 @@ class Bank_account
     int Check(int Temp_account_number);
     void Display()
     {
-        cout << "Account holder name : " << Account_holder_name << endl;
+        cout << "\nAccount holder name : " << Account_holder_name << endl;
         cout << "Account Number : " << Account_number << endl;
         cout << "Account balance : " << Balance << endl;
     }
@@ -27,7 +27,7 @@ int main()
     Bank_account a;
     do
     {
-        cout << "Enter 1 to Add account" << endl;
+        cout << "\nEnter 1 to Add account" << endl;
         cout << "Enter 2 to Deposit amount" << endl;
         cout << "Enter 3 to Withdraw amount" << endl;
         cout << "Enter 4 to Display Account details" << endl;

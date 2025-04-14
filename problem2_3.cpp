@@ -63,7 +63,7 @@ public:
     }
     void display_details()
     {
-        cout << "Account holder name : " << account_holder_name << endl;
+        cout << "\nAccount holder name : " << account_holder_name << endl;
         cout << "Account Number : " << account_number << endl;
         cout << "Account balance : " << balance << endl;
     }
@@ -75,7 +75,7 @@ int main()
     Bank_account a[10];
     do
     {
-        cout << "Enter 1 to add account" << endl;
+        cout << "\nEnter 1 to add account" << endl;
         cout << "Enter 2 to deposit amount" << endl;
         cout << "Enter 3 to withdraw amount" << endl;
         cout << "Enter 4 to display Account details" << endl;
