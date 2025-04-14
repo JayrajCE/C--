@@ -1,3 +1,0 @@
-Savings Account No. 123 Transaction History | Initial Balance: Rs. 25000
-Withdrew Rs.5000 | Current Balance: Rs. 20000
-Undid Last Transaction | Current Balance: Rs. 25000
