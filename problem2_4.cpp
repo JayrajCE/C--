@@ -3,27 +3,27 @@ using namespace std;
 
 class Product
 {
-    int Product_Id;
-    int Product_Quantity;
-    string Product_Name;
-    float Product_Price;
-    int User_Quantitty=0;
-    float display_Total(float price , int quantity)
+    int Product_id;
+    int Product_quantity;
+    string Product_name;
+    float Product_price;
+    int User_quantitty=0;
+    float Display_total(float Price , int quantity)
     {
-        return price*quantity;
+        return Price*quantity;
     }
     public:
-    void Add(int id , int quantitty,string name,float price)
+    void Add(int Id , int Quantitty,string Name,float Price)
     {
-        Product_Id = id;
-        Product_Quantity = quantitty;
-        Product_Name = name;
-        Product_Price = price;
+        Product_id = Id;
+        Product_quantity = Quantitty;
+        Product_name = Name;
+        Product_price = Price;
     }
-    int check(int idno)
+    int Search(int idno)
         {
             
-            if(Product_Id == idno)
+            if(Product_id == idno)
             {
                 
                 return 1;
@@ -33,25 +33,25 @@ class Product
                 return 0;
             }
         }
-    void update_Purchase()
+    void Update_purchase()
     {
-        User_Quantitty++;
-        Product_Quantity--;
+        User_quantitty++;
+        Product_quantity--;
     }
-    void update_Stockup(int quantitty)
+    void Update_stockup(int Quantitty)
     {
-        Product_Quantity == Product_Quantity + quantitty;
+        Product_quantity == Product_quantity + Quantitty;
     }
-    void display_bill()
+    void Display_bill()
     {
-        if( User_Quantitty > 0)
+        if( User_quantitty > 0)
         {
-            cout<<"\nID : "<<Product_Id<<endl;
-            cout<<"Name : "<<Product_Name<<endl;
-            cout<<"Rate : "<<Product_Price<<endl;
-            cout<<"Qantitiy : "<<User_Quantitty<<endl;
-            cout<<"TOTAL : "<<display_Total(Product_Price, User_Quantitty)<<endl;
-            User_Quantitty=0;
+            cout<<"\nID : "<<Product_id<<endl;
+            cout<<"Name : "<<Product_name<<endl;
+            cout<<"Rate : "<<Product_price<<endl;
+            cout<<"Qantitiy : "<<User_quantitty<<endl;
+            cout<<"TOTAL : "<<Display_total(Product_price, User_quantitty)<<endl;
+            User_quantitty=0;
         }
     }
 };
@@ -59,101 +59,101 @@ class Product
 int main()
 {
     Product p[10];
-    int Product_count=0 , choice , Temp_Id , Temp_Quantity , choice2;
+    int Product_count=0 , Choice , Temp_Id , Temp_uantity , Choice2;
     float  Temp_Rate;
     string Temp_Name;
     do{
     cout<<"\nEnter 1 to add stock"<<endl;
     cout<<"Enter 2 to purchase item"<<endl;
     cout<<"Enter 0 to exit"<<endl;
-    cout<<"Enter your choice : ";
-    cin>>choice;
-    if(choice == 1)
+    cout<<"Enter your Choice : ";
+    cin>>Choice;
+    if(Choice == 1)
     {
         cout<<"Enter Product ID : ";
         cin>>Temp_Id;
         if(Product_count == 0)
         {
-            cout<<"Enter product name :";
+            cout<<"Enter product Name :";
             cin>>Temp_Name;
             cout<<"Enter product rate : ";
             cin>>Temp_Rate;
-            cout<<"Enter product Quantity : ";
-            cin>>Temp_Quantity;
+            cout<<"Enter product quantity : ";
+            cin>>Temp_uantity;
             Product_count++;
-            p[0].Add(Temp_Id,Temp_Quantity,Temp_Name,Temp_Rate);
+            p[0].Add(Temp_Id,Temp_uantity,Temp_Name,Temp_Rate);
             
         }
         else{
             for(int i=0; i<Product_count ; i++)
             {
-                if(p[i].check(Temp_Id))
+                if(p[i].Search(Temp_Id))
                 {
-                    p[i].update_Stockup(Temp_Quantity);
-                    cout<<"Product Quantity Updated sucessflly"<<endl;
+                    p[i].Update_stockup(Temp_uantity);
+                    cout<<"Product quantity Updated sucessflly"<<endl;
                     break;
                 }
                 else if(i == Product_count-1)
                 {
-                    cout<<"Enter product name :";
+                    cout<<"Enter product Name :";
                     cin>>Temp_Name;
                     cout<<"Enter product rate : ";
                     cin>>Temp_Rate;
-                    cout<<"Enter product Quantity : ";
-                    cin>>Temp_Quantity;
-                    p[Product_count].Add(Temp_Id,Temp_Quantity,Temp_Name,Temp_Rate);
+                    cout<<"Enter product quantity : ";
+                    cin>>Temp_uantity;
+                    p[Product_count].Add(Temp_Id,Temp_uantity,Temp_Name,Temp_Rate);
                     Product_count++;
                     
                 }
             }
         }
     }
-    else if(choice == 2)
+    else if(Choice == 2)
     {
         do{
-        cout<<"\nEnter 1 to purchase product"<<endl;
-        cout<<"Enter 2 to display bill"<<endl;
-        cout<<"Enter 0 to exit"<<endl;
-        cout<<"Enter Your Choice : ";
-        cin>>choice2;
-        switch(choice2)
-        {
-            case 1 :
-            cout<<"Enter product id : ";
-            cin>>Temp_Id;
-            for(int i=0; i<Product_count ; i++)
+            cout<<"\nEnter 1 to purchase product"<<endl;
+            cout<<"Enter 2 to display bill"<<endl;
+            cout<<"Enter 0 to exit"<<endl;
+            cout<<"Enter Your Choice : ";
+            cin>>Choice2;
+            switch(Choice2)
             {
-                if(p[i].check(Temp_Id))
+                case 1 :
+                cout<<"Enter product Id : ";
+                cin>>Temp_Id;
+                for(int i=0; i<Product_count ; i++)
                 {
-                    p[i].update_Purchase();
+                    if(p[i].Search(Temp_Id))
+                    {
+                        p[i].Update_purchase();
+                        break;
+                    }
+                    else if(i == Product_count-1)
+                    {
+                        cout<<"NO product with matching Id found"<<endl;
+                    }
+                }
+                break;
+                case 2:
+                    for(int i=0 ; i<Product_count ; i++)
+                    {
+                        p[i].Display_bill();
+                    }
                     break;
-                }
-                else if(i == Product_count-1)
-                {
-                    cout<<"NO product with matching id found"<<endl;
-                }
+                case 0 :
+                    cout<<"Thank you for visiting"<<endl;
+                    break;
+                default :
+                    cout<<"ERROR : INVALID CHOICE"<<endl;
+                    break;
             }
-            break;
-            case 2:
-                for(int i=0 ; i<Product_count ; i++)
-                {
-                    p[i].display_bill();
-                }
-                break;
-            case 0 :
-                cout<<"Thank you for visiting"<<endl;
-                break;
-            default :
-                cout<<"ERROR : INVALID CHOICE"<<endl;
-                break;
         }
-    }
-        while(choice2 != 0);   
-    }
-    else
-    {
-        cout<<"Invalid choice";
-    }
-}while(choice != 0);
+            while(Choice2 != 0);   
+        }
+        else
+        {
+            cout<<"Invalid Choice";
+        }
+}while(Choice != 0);
     return 0;
 }
