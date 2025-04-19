@@ -115,6 +115,11 @@ int main()
                 }
             }
             break;
+        case 0:
+            cout<<"THANKS FOR VISITING"<<endl;
+            break;
+        default:
+            cout<<"INVALID CHOICE"<<endl;
         }
 
     } while (Choice != 0);
