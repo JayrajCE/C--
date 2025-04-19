@@ -9,9 +9,13 @@ class Employee
     float Basic_salary;
     float Bonus;
     float Total_salary;
-    void Calculate_Total_salary()
+    void Calculate_total_salary()
     {
         Total_salary = Basic_salary + Bonus;
+    }
+    void Update_total_salary()
+    {
+        Total_salary = Total_salary - Bonus;
     }
 
     public:
@@ -130,7 +134,7 @@ int main()
     cin>>Employee_name;
     cout<<"Enter salary : ";
     cin>>Basic_salary;
-    Calculate_Total_salary();
+    Calculate_total_salary();
 }
 void Employee :: Display_details()
 {
@@ -142,8 +146,10 @@ void Employee :: Display_details()
 }
 void Employee :: Set_bonus()
 {
+    Update_total_salary();
     cout<<"Enter bonus amount : ";
     cin>>Bonus;
+    Calculate_total_salary();
 }
 int Employee :: Search(int Temp_id)
 {
