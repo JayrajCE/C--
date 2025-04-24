@@ -9,8 +9,8 @@ class Loan_Info
     int Time_period;
     int Total_loan_amount;
     double Emi;
-    float Anual_intrest;
-    void Emi_calculator(int amount ,int time , float intrest)
+    double Anual_intrest;
+    void Emi_calculator(int amount ,int time , double intrest)
     {
        
         Emi = (amount*intrest*pow((1.0+intrest) , time))/(pow((1.0+intrest) , time) - 1);
@@ -19,17 +19,18 @@ class Loan_Info
     public:
     void Add_loan()
     {
-        cout<<"Enter Loan ID : ";
-        cin>>Loan_id;
-        cout<<"Enter Applicant Name : ";
-        cin>>Applicant_name;
-        cout<<"Enter total loan amount : ";
-        cin>>Total_loan_amount;
-        cout<<"Enter tenure of loan : ";
-        cin>> Time_period;
-        cout<<"Enter Loan Interst : ";
-        cin>>Anual_intrest;
-        Emi_calculator(Time_period , Total_loan_amount , Time_period);
+        cout << "Enter Loan ID : ";
+        cin >> Loan_id;
+        cout << "Enter Applicant Name : ";
+        cin >> Applicant_name;
+        cout << "Enter total loan amount : ";
+        cin >> Total_loan_amount;
+        cout << "Enter tenure of loan : ";
+        cin >> Time_period;
+        cout << "Enter Loan Interest (annual rate in decimal, e.g. 0.1 for 10%) : ";
+        cin >> Anual_intrest;
+        
+        Emi_calculator(Total_loan_amount, Time_period, Anual_intrest);
     }
     void Display_Details()
     {
@@ -47,7 +48,7 @@ int main()
     int Choice , Loan_count=0;
     do
     {
-        cout<<"Enter 1 to add Loan details"<<endl;
+        cout<<"\nEnter 1 to add Loan details"<<endl;
         cout<<"Enter 2 to display detials"<<endl;
         cout<<"Enter 3 to EXIT"<<endl;
         cout<<"Enter your Choice : ";

@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Product
+class Store_management
 {
     int Product_id;
     int Product_quantity;
@@ -13,7 +13,7 @@ class Product
         return Price*quantity;
     }
     public:
-    void Add(int Id , int Quantitty,string Name,float Price)
+    void Add_stock(int Id , int Quantitty,string Name,float Price)
     {
         Product_id = Id;
         Product_quantity = Quantitty;
@@ -22,7 +22,7 @@ class Product
     }
     int Search(int idno)
         {
-            
+            cout<<Product_id;
             if(Product_id == idno)
             {
                 
@@ -54,17 +54,23 @@ class Product
             User_quantitty=0;
         }
     }
+    void Display_stock_details()
+    {
+        cout<<"ID : "<<Product_id<<endl;
+        cout<<"Name : "<<Product_name<<endl;
+        cout<<"Quantity avaliable : "<<Product_quantity<<endl<<endl;;
+    }
 };
-
 int main()
 {
-    Product p[10];
-    int Product_count=0 , Choice , Temp_Id , Temp_uantity , Choice2;
+    Store_management p[10];
+    int Product_count=0 , Choice , Temp_Id , Temp_quantity , Choice2,i;
     float  Temp_Rate;
     string Temp_Name;
     do{
     cout<<"\nEnter 1 to add stock"<<endl;
     cout<<"Enter 2 to purchase item"<<endl;
+    cout<<"Entre 3 to display stock details"<<endl;
     cout<<"Enter 0 to exit"<<endl;
     cout<<"Enter your Choice : ";
     cin>>Choice;
@@ -79,17 +85,17 @@ int main()
             cout<<"Enter product rate : ";
             cin>>Temp_Rate;
             cout<<"Enter product quantity : ";
-            cin>>Temp_uantity;
+            cin>>Temp_quantity;
             Product_count++;
-            p[0].Add(Temp_Id,Temp_uantity,Temp_Name,Temp_Rate);
+            p[0].Add_stock(Temp_Id,Temp_quantity,Temp_Name,Temp_Rate);
             
         }
         else{
-            for(int i=0; i<Product_count ; i++)
+            for(i=0; i<Product_count ; i++)
             {
-                if(p[i].Search(Temp_Id))
+                if(p[i].Search(Temp_Id)==1)
                 {
-                    p[i].Update_stockup(Temp_uantity);
+                    p[i].Update_stockup(Temp_quantity);
                     cout<<"Product quantity Updated sucessflly"<<endl;
                     break;
                 }
@@ -100,8 +106,8 @@ int main()
                     cout<<"Enter product rate : ";
                     cin>>Temp_Rate;
                     cout<<"Enter product quantity : ";
-                    cin>>Temp_uantity;
-                    p[Product_count].Add(Temp_Id,Temp_uantity,Temp_Name,Temp_Rate);
+                    cin>>Temp_quantity;
+                    p[Product_count].Add_stock(Temp_Id,Temp_quantity,Temp_Name,Temp_Rate);
                     Product_count++;
                     
                 }
@@ -121,7 +127,7 @@ int main()
                 case 1 :
                 cout<<"Enter product Id : ";
                 cin>>Temp_Id;
-                for(int i=0; i<Product_count ; i++)
+                for(i=0; i<Product_count ; i++)
                 {
                     if(p[i].Search(Temp_Id))
                     {
@@ -135,7 +141,7 @@ int main()
                 }
                 break;
                 case 2:
-                    for(int i=0 ; i<Product_count ; i++)
+                    for(i=0 ; i<Product_count ; i++)
                     {
                         p[i].Display_bill();
                     }
@@ -150,10 +156,21 @@ int main()
         }
             while(Choice2 != 0);   
         }
-        else
+    else if(Choice==3)
+    {
+        for(i=0;i<Product_count;i++)
         {
-            cout<<"Invalid Choice";
+            p[i].Display_stock_details();
         }
+    }
+    else if(Choice==0)
+    {
+        cout<<"THANKS for VISTING"<<endl;
+    }
+    else
+    {
+        cout<<"Invalid Choice";
+    }
 }while(Choice != 0);
     return 0;
 }

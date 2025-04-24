@@ -15,28 +15,28 @@ class Calculator
 int main()
 {
     Calculator Cal;
-    int choice, number1 , number2 ,answere;
-    float fnumber1,fnumber2,fanswere;
+    int Choice, Number1 , Number2 ,Answere;
+    float Fnumber1,Fnumber2,Fanswere;
     cout<<"Enter 1 to add intigers"<<endl;
     cout<<"Enter 2 to add floating point numbers"<<endl;
-    cout<<"Enter your choice : ";
-    cin>>choice;
-    switch(choice){
+    cout<<"Enter your Choice : ";
+    cin>>Choice;
+    switch(Choice){
         case 1:
         cout<<"Enter 1st number : ";
-        cin>>number1;
+        cin>>Number1;
         cout<<"Enter 2nd number : ";
-        cin>>number2;
-        answere=Cal.Add_numbers(number1,number2);
-        cout<<"Sumation of 2 intiger number is "<<answere<<endl;
+        cin>>Number2;
+        Answere=Cal.Add_numbers(Number1,Number2);
+        cout<<"Sumation of 2 intiger number is "<<Answere<<endl;
         break;
         case 2:
         cout<<"Enter 1st number : ";
-        cin>>fnumber1;
+        cin>>Fnumber1;
         cout<<"Enter 2nd number : ";
-        cin>>fnumber2;
-        fanswere=Cal.Add_numbers(fnumber1,fnumber2);
-        cout<<"Sumation of 2 floating-point number is "<<fanswere<<endl;
+        cin>>Fnumber2;
+        Fanswere=Cal.Add_numbers(Fnumber1,Fnumber2);
+        cout<<"Sumation of 2 floating-point number is "<<Fanswere<<endl;
         break;
         default: 
         cout<<"INVALID CHOICE";

@@ -4,40 +4,40 @@ using namespace std;
 
 class Product {
 private:
-    int productID;
-    string name;
-    int quantity;
-    double price;
+    int Product_id;
+    string Name;
+    int Quantity;
+    double Price;
 
 public:
     Product() {
-        productID = 0;
-        name = "Unknown";
-        quantity = 0;
-        price = 0.0;
+        Product_id = 0;
+        Name = "Unknown";
+        Quantity = 0;
+        Price = 0.0;
     }
 
-    void setDetails(int id, string n, int q, double p) {
-        productID = id;
-        name = n;
-        quantity = q;
-        price = p;
+    void Set_details(int id, string n, int q, double p) {
+        Product_id = id;
+        Name = n;
+        Quantity = q;
+        Price = p;
     }
 
-    void updateQuantity(int newQuantity) {
-        quantity = newQuantity;
+    void Update_quantity(int newQuantity) {
+        Quantity = newQuantity;
     }
 
-    double calculateTotalValue() const {
-        return quantity * price;
+    double Calculate_total_price() const {
+        return Quantity * Price;
     }
 
-    void displayProduct() const {
-        cout << "ID: " << productID << ", Name: " << name << ", Quantity: " << quantity << ", Price: " << price << endl;
+    void Display() const {
+        cout << "ID: " << Product_id << ", Name: " << Name << ", Quantity: " << Quantity << ", Price: " << Price << endl;
     }
 
-    int getProductID() const {
-        return productID;
+    int Get_Product_id() const {
+        return Product_id;
     }
 };
 
@@ -46,44 +46,44 @@ private:
     vector<Product> products;
 
 public:
-    void addProduct() {
+    void Add_inventory() {
         Product p;
-        int id, quantity;
-        string name;
-        double price;
+        int id, Quantity;
+        string Name;
+        double Price;
 
         cout << "Enter Product ID, Name, Quantity, and Price: ";
-        cin >> id >> name >> quantity >> price;
-        p.setDetails(id, name, quantity, price);
+        cin >> id >> Name >> Quantity >> Price;
+        p.Set_details(id, Name, Quantity, Price);
         products.push_back(p);
     }
 
-    void updateProductQuantity() {
+    void Update_Product_Quantity() {
         int id, newQuantity;
         cout << "Enter Product ID and new Quantity: ";
         cin >> id >> newQuantity;
 
         for (Product &product : products) {
-            if (product.getProductID() == id) {
-                product.updateQuantity(newQuantity);
-                cout << "Product quantity updated successfully!" << endl;
+            if (product.Get_Product_id() == id) {
+                product.Update_quantity(newQuantity);
+                cout << "Product Quantity updated successfully!" << endl;
                 return;
             }
         }
         cout << "Product not found!" << endl;
     }
 
-    void calculateTotalInventoryValue() {
+    void Calculate_total_inventory_value() {
         double totalValue = 0;
         for (const Product &product : products) {
-            totalValue += product.calculateTotalValue();
+            totalValue += product.Calculate_total_price();
         }
         cout << "Total Inventory Value: " << totalValue << endl;
     }
 
-    void displayInventory() {
+    void Display_inventory() {
         for (const Product &product : products) {
-            product.displayProduct();
+            product.Display();
         }
     }
 };
@@ -98,16 +98,16 @@ int main() {
 
         switch (choice) {
             case 1:
-                storeInventory.addProduct();
+                storeInventory.Add_inventory();
                 break;
             case 2:
-                storeInventory.updateProductQuantity();
+                storeInventory.Update_Product_Quantity();
                 break;
             case 3:
-                storeInventory.displayInventory();
+                storeInventory.Display_inventory();
                 break;
             case 4:
-                storeInventory.calculateTotalInventoryValue();
+                storeInventory.Calculate_total_inventory_value();
                 break;
             case 5:
                 cout << "Exiting..." << endl;

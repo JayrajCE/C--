@@ -34,5 +34,5 @@ int main()
     }
     Sum_itrative(array , Size);
     Sum = Sum_reccursive(array , Size);
-    cout<<"The Sum reccursive aaporach is "<<Sum<<endl;
+    cout<<"The Sum through reccursive aaporach is "<<Sum<<endl;
 }

@@ -136,22 +136,22 @@ void Bank_account :: Add_account(int Temp_account_number)
 }
 void Bank_account :: Deposit()
 {
-    float temp_amount;
+    float Temp_amount;
     cout << "Enter amount to be deposited : ";
-    cin >> temp_amount;
-    Balance = Balance + temp_amount;
+    cin >> Temp_amount;
+    Balance = Balance + Temp_amount;
     cout << "Amount deposited successfuly" << endl;
 }
 
 void Bank_account :: Withdraw()
 {
-    float temp_amount;
+    float Temp_amount;
         cout << "Enter amount to withdrawn : ";
-        cin >> temp_amount;
-        if (Balance - temp_amount >= 0)
+        cin >> Temp_amount;
+        if (Balance - Temp_amount >= 0)
         {
-            Balance = Balance - temp_amount;
-            cout << "RS." << temp_amount << " withdrawm successffuly" << endl;
+            Balance = Balance - Temp_amount;
+            cout << "RS." << Temp_amount << " withdrawm successffuly" << endl;
         }
         else
         {

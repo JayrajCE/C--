@@ -2,42 +2,41 @@
 using namespace std; 
 
 class Rectangle { 
-    int l, w; // Private data members to store length and width 
-
+    int Lenght, Width; 
 public: 
-    // Member function to set dimensions of the rectangle 
-    void setDimension(int a, int b) { // Changed return type to void 
-        l = a; 
-        w = b; 
+    
+    void Set_dimension(int a, int b) { 
+        Lenght = a; 
+        Width = b; 
     } 
 
-    // Member function to calculate and return the area of the rectangle 
-    int area() { 
-        int Area = l * w; // Area formula: length * width 
+   
+    int Calculate_area() { 
+        int Area = Lenght * Width; 
         return Area; 
     } 
 
-    // Member function to calculate and return the perimeter of the rectangle 
-    int perimeter() { 
-        int Perimeter = 2 * (l + w); // Perimeter formula: 2 * (length + width) 
+   
+    int Perimeter() { 
+        int Perimeter = 2 * (Lenght + Width); 
         return Perimeter; 
     } 
 }; 
 
 int main() { 
-    Rectangle rect; // Creating a single Rectangle object 
-    int l, w, Area, Perimeter; 
+    Rectangle Rect;
+    int Lenght, Width, Area, Perimeter; 
 
     cout << "Enter length and width of Rectangle: "; 
-    cin >> l >> w; // Taking user input for length and width 
+    cin >> Lenght >> Width; 
 
-    rect.setDimension(l, w); // Setting dimensions for the rectangle 
+    Rect.Set_dimension(Lenght, Width);
 
-    Area = rect.area();           // Calculating the area 
-    Perimeter = rect.perimeter(); // Calculating the perimeter 
+    Area = Rect.Calculate_area();           
+    Perimeter = Rect.Perimeter();
 
-    // Displaying the results 
-    cout << "The area of the rectangle is " << Area 
-         << " and the perimeter of the rectangle is " << Perimeter << "." << endl; 
+    
+    cout << "The Calculate_area of the rectangle is " << Area 
+         << " and the Perimeter of the rectangle is " << Perimeter << "." << endl; 
     return 0; 
 }
