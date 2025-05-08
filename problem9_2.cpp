@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class BankAccount {
+class Bank_account {
     string Name;
     double Balance;
     string* History;  
@@ -27,7 +27,7 @@ class BankAccount {
     }
 
 public:
-    BankAccount(string accName, double initialBalance = 0) {
+    Bank_account(string accName, double initialBalance = 0) {
         Name = accName;
         Balance = initialBalance;
         Capacity = 10;
@@ -36,7 +36,7 @@ public:
         Log_transaction("Account created with Balance: " + to_string(Balance));
     }
 
-    ~BankAccount() {
+    ~Bank_account() {
         delete[] History;
     }
 
@@ -76,7 +76,7 @@ public:
 
 
 int main() {
-    BankAccount acc("John Doe", 1000);
+    Bank_account acc("John Doe", 1000);
 
     try {
         acc.eposit(500);

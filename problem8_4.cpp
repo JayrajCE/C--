@@ -3,13 +3,13 @@
 #include <algorithm>
 using namespace std;
 
-// Define a struct to hold student data
+
 struct Student {
     string name;
     int score;
 };
 
-// Custom comparator for sorting by score (descending)
+
 bool compareByScore(const Student& a, const Student& b) {
     return a.score > b.score;
 }
